@@ -1,0 +1,17 @@
+﻿<h3>Component A</h3>
+
+<p>Value: @value</p>
+<button @onclick="ButtonClickAsync">Increment value</button>
+
+@code {
+	private int value;
+
+	[Inject]
+	protected EventAggregator.Blazor.IEventAggregator EventAggregator { get; set; }
+
+	protected async Task ButtonClickAsync()
+	{
+		value += 1;
+		await EventAggregator.PublishAsync(new ValueChanged(value));
+	}
+}

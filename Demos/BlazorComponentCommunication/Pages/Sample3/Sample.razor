@@ -1,0 +1,11 @@
+﻿@page "/sample3"
+
+<h2>Sample 3 - Databinding</h2>
+
+<ComponentA @bind-Value="@value" />
+<ComponentB Value="@value" />
+
+@code
+{
+	int value;
+}

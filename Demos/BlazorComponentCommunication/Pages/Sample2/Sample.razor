@@ -1,0 +1,16 @@
+﻿@page "/sample2"
+
+<h2>Sample 2 - Events</h2>
+
+<ComponentA ValueChanged="ValueChanged" />
+<ComponentB Value="@value" />
+
+@code
+{
+	int value;
+
+	private void ValueChanged(int i)
+	{
+		value = i;
+	}
+}

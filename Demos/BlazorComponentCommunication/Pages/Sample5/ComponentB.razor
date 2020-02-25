@@ -1,0 +1,23 @@
+﻿@implements EventAggregator.Blazor.IHandle<ValueChanged>
+
+<h3>Component B</h3>
+<p>Value: @value</p>
+
+@code {
+	private int value;
+
+	[Inject]
+	protected EventAggregator.Blazor.IEventAggregator EventAggregator { get; set; }
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		EventAggregator.Subscribe(this);
+	}
+
+	Task EventAggregator.Blazor.IHandle<ValueChanged>.HandleAsync(ValueChanged message)
+	{
+		value = message.Value;
+		return Task.CompletedTask;
+	}
+}

@@ -1,0 +1,14 @@
+﻿<h3>Component A</h3>
+
+<p>Value: @ValueHolder.Value</p>
+<button @onclick="ButtonClick">Increment value</button>
+
+@code {
+	[CascadingParameter]
+	public ValueHolder ValueHolder { get; set; }
+
+	protected void ButtonClick()
+	{
+		ValueHolder.Value += 1;
+	}
+}

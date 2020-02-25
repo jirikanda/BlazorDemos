@@ -1,0 +1,17 @@
+﻿<h3>Component A</h3>
+
+<p>Value: @value</p>
+<button @onclick="ButtonClickAsync">Increment value</button>
+
+@code {
+	int value = 0;
+
+	[Parameter]
+	public EventCallback<int> ValueChanged { get; set; }
+
+	protected async Task ButtonClickAsync()
+	{
+		value += 1;
+		await ValueChanged.InvokeAsync(value);
+	}
+}

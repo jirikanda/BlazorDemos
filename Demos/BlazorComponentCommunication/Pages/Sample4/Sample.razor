@@ -1,0 +1,13 @@
+﻿@page "/sample4"
+
+<h2>Sample 4 - Cascading Value + Cascading Parameter (does not work!)</h2>
+
+<CascadingValue Value="@valueHolder">
+	<ComponentA />
+	<ComponentB />
+</CascadingValue>
+
+@code
+{
+	ValueHolder valueHolder = new ValueHolder();
+}

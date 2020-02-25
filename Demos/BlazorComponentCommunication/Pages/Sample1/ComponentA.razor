@@ -1,0 +1,13 @@
+﻿<h3>Component A</h3>
+
+<p>Value: @value</p>
+<button @onclick="ButtonClick">Increment value</button>
+
+@code {
+	int value = 0;
+
+	protected void ButtonClick()
+	{
+		value += 1;
+	}
+}
