@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorComponentCommunication.Data;
+using Blazor.Fluxor;
 
 namespace BlazorApp.BlazorComponentCommunication
 {
@@ -29,6 +30,7 @@ namespace BlazorApp.BlazorComponentCommunication
 			services.AddServerSideBlazor();
 			services.AddSingleton<WeatherForecastService>();
 			services.AddScoped<EventAggregator.Blazor.IEventAggregator, EventAggregator.Blazor.EventAggregator>();
+			services.AddFluxor(options => options.UseDependencyInjection(typeof(Startup).Assembly));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

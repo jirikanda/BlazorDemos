@@ -1,0 +1,22 @@
+﻿@using Blazor.Fluxor
+
+@inject IDispatcher Dispatcher
+@inject IState<ValueState> ValueState
+
+@implements IDisposable
+
+<h3>Component B</h3>
+<p>Value: @ValueState.Value.Value</p>
+
+@code {
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		ValueState.Subscribe(this);
+	}
+
+	public void Dispose()
+	{
+		ValueState.Unsubscribe(this);
+	}
+}

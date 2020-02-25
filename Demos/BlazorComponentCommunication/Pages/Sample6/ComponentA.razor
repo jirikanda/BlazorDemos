@@ -1,0 +1,17 @@
+﻿@using Blazor.Fluxor
+
+@inject IDispatcher Dispatcher
+@inject IState<ValueState> ValueState
+
+<h3>Component A</h3>
+
+<p>Value: @ValueState.Value.Value</p>
+<button @onclick="ButtonClick">Increment value</button>
+
+@code {
+
+	protected void ButtonClick()
+	{
+		Dispatcher.Dispatch(new IncrementValueAction());
+	}
+}
