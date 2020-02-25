@@ -1,0 +1,14 @@
+﻿@page "/"
+
+<MyComponent SomeValue="@i"  />
+
+<input type="button" @onclick="ButtonClick" value="Click me">
+
+@code {
+	private int i;
+	private void ButtonClick()
+	{
+		i++;
+		// NOOP
+	}
+}

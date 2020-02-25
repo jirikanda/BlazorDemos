@@ -8,10 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BlazorComponentCommunication.Data;
 using Blazor.Fluxor;
 
-namespace BlazorApp.BlazorComponentCommunication
+namespace BlazorComponentCommunication
 {
 	public class Startup
 	{
@@ -28,7 +27,6 @@ namespace BlazorApp.BlazorComponentCommunication
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
-			services.AddSingleton<WeatherForecastService>();
 			services.AddScoped<EventAggregator.Blazor.IEventAggregator, EventAggregator.Blazor.EventAggregator>();
 			services.AddFluxor(options => options.UseDependencyInjection(typeof(Startup).Assembly));
 		}

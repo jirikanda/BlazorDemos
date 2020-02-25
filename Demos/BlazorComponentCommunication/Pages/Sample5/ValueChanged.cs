@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazorApp.BlazorComponentCommunication.Pages.Sample5
+namespace BlazorComponentCommunication.Pages.Sample5
 {
 	public class ValueChanged
 	{

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>BlazorApp.BlazorComponentCommunication</AssemblyName>
-    <RootNamespace>BlazorApp.BlazorComponentCommunication</RootNamespace>
+    <AssemblyName>BlazorComponentCommunication</AssemblyName>
+    <RootNamespace>BlazorComponentCommunication</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
