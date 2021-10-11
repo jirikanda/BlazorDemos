@@ -1,0 +1,14 @@
+﻿@page "/apptojs"
+@inject IJSRuntime JsRuntime
+
+<button @onclick="HandleClickAsync">Klikni!</button>
+
+@code {
+	private async Task HandleClickAsync()
+	{
+		if (await JsRuntime.InvokeAsync<bool>("confirm", "Opravdu chcete kliknout na tlačítko?"))
+		{
+			await JsRuntime.InvokeVoidAsync("alert", "Potvrzeno.");
+		}
+	}
+}

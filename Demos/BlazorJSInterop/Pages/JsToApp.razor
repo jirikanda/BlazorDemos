@@ -1,0 +1,30 @@
+﻿@page "/jstoapp"
+@inject IJSRuntime JsRuntime
+@implements IDisposable
+
+<button @onclick="HandleClickAsync">Klikni!</button>
+
+<p>Counter: @counter</p>
+
+@code {	
+	private DotNetObjectReference<JsToApp> dotnetReference;
+	private int counter;
+
+	private async Task HandleClickAsync()
+	{
+		dotnetReference = DotNetObjectReference.Create(this);
+		await JsRuntime.InvokeVoidAsync("sayHello", dotnetReference); // viz index.html
+	}
+
+	[JSInvokable("JsToApp_SayHello")]
+	public void SayHello()
+	{
+		counter++;
+	}
+
+	public void Dispose()
+	{
+		dotnetReference.Dispose(); 
+		// Dispose lze provést i z JS
+	}
+}

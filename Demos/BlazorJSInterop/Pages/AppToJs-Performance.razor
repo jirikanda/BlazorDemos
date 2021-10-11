@@ -1,0 +1,52 @@
+﻿@page "/apptojs-performance"
+@inject IJSRuntime JsRuntime
+@implements IAsyncDisposable
+
+<button @onclick="HandleClickAsync">Klikni!</button>
+
+<p>Doba trvání výpočtu WASM: @durationWasm</p>
+<p>Doba trvání výpočtu JS: @durationJs</p>
+
+@code {
+	private IJSObjectReference jsModule;
+	long durationWasm = 0;
+	long durationJs = 0;
+
+	private async Task HandleClickAsync()
+	{
+		jsModule ??= await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./apptojs-performance.js");
+		Stopwatch stopwatch = Stopwatch.StartNew();
+		CalculatePrimes(5000);
+		durationWasm = stopwatch.ElapsedMilliseconds;
+		stopwatch = Stopwatch.StartNew();
+		await jsModule.InvokeAsync<int>("calculatePrimes", 5000);
+		durationJs = stopwatch.ElapsedMilliseconds;
+	}
+
+	public async ValueTask DisposeAsync()
+	{
+		if (jsModule != null)
+		{
+			await jsModule.DisposeAsync();
+			jsModule = null;
+		}
+	}
+
+	private int CalculatePrimes(int max)
+	{
+		int result = 0;
+		for (var i = 1; i <= max; i++)
+		{
+			bool prime = true;
+			for (int j = 2; j < i; j++)
+			{
+				prime = false;
+			}
+			if (prime)
+			{
+				result++;
+			}
+		}
+		return result;
+	}
+}

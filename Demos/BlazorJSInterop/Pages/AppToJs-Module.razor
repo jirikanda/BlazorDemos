@@ -1,0 +1,27 @@
+﻿@page "/apptojs-module"
+@inject IJSRuntime JsRuntime
+@implements IAsyncDisposable
+
+<button @onclick="HandleClickAsync">Klikni!</button>
+
+@code {
+	private IJSObjectReference jsModule;
+
+	private async Task HandleClickAsync()
+	{
+		jsModule ??= await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./apptojs-module.js");
+		if (await jsModule.InvokeAsync<bool>("myQuestion"))
+		{
+			await jsModule.InvokeVoidAsync("myConfirmation");
+		}
+	}
+
+	public async ValueTask DisposeAsync()
+	{
+		if (jsModule != null)
+		{
+			await jsModule.DisposeAsync();
+			jsModule = null;
+		}
+	}
+}
