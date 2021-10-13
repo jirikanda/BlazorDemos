@@ -1,0 +1,15 @@
+﻿<input type="text" value="@Text" @onchange="HandleChange" />
+@*<input type="text" value="@Text" @oninput="HandleChange" />*@
+@*<input type="text" @bind-value="Text" />*@ @*Nevolá TextChanged!*@
+@*<input type="text" @bind-value="Text" @bind-value:event="oninput" />*@ @*Nevolá TextChanged!*@
+
+@code {
+	[Parameter] public string Text{ get; set; }
+	[Parameter] public EventCallback<string> TextChanged { get; set; }
+
+	private async Task HandleChange(ChangeEventArgs changeEventArgs)
+	{
+		Text = (string)changeEventArgs.Value;
+		await TextChanged.InvokeAsync(Text);
+	}
+}

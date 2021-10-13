@@ -1,0 +1,13 @@
+﻿h1 {
+    color: blue
+}
+
+.green
+{
+    color: green;
+}
+
+::deep .red
+{
+    color: red;
+}

@@ -1,0 +1,20 @@
+﻿@page "/component20"
+
+<h1>Cascading Values</h1>
+
+<CascadingValue Value="myCascadingValue1" IsFixed="true">
+	<CascadingValueReceiverDemoComponent />
+	<CascadingValueReceiverDemoComponent />
+</CascadingValue>
+
+<CascadingValue Value="myCascadingValue2" IsFixed="true">
+	<CascadingValueReceiverDemoComponent />
+	<CascadingValueReceiverDemoComponent />
+</CascadingValue>
+
+@code
+{
+	private MyCascadingValue myCascadingValue1 = new MyCascadingValue { Text = "Value1" };
+	private MyCascadingValue myCascadingValue2 = new MyCascadingValue { Text = "Value2" };
+}
+

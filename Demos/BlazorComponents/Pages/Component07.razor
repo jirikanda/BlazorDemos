@@ -1,0 +1,27 @@
+﻿@page "/component07"
+@using System.Globalization
+
+<h1>Razor control structures</h1>
+
+<ul>
+	@foreach (CultureInfo cultureInfo in CultureInfo.GetCultures(CultureTypes.AllCultures))
+	{
+		<li>@cultureInfo.EnglishName</li>
+	}	
+</ul>
+
+<span>
+	@if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
+	{
+		<text>Happy day!</text>
+	}
+</span>
+
+@* 
+	@if, else/else if, @switch
+	@for, @foreach, @while, @do
+	@using
+	@try, catch, finally
+	@lock
+*@
+

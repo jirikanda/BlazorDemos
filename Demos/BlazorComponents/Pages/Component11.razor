@@ -1,0 +1,31 @@
+﻿@page "/component11"
+
+<h1>Events - HTML</h1>
+
+<button onclick="alert(0)">Button1</button>
+<button @onclick="HandleButtonClick">Button2</button>
+<button @onclick="HandleButtonClickAsync">Button3</button>
+
+@* Nelze: 
+<button onclick="alert(1)" @onclick="HandleButtonClickAsync"></button>
+*@
+
+<p>counter: @counter</p>
+
+@code
+{
+	int counter;
+
+	private void HandleButtonClick()
+	{
+		counter += 1;
+	}
+
+	private async Task HandleButtonClickAsync()
+	{
+		counter += 1;
+		await Task.Yield();
+	}
+}
+
+@* https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-5.0#event-arguments-1 *@

@@ -1,0 +1,19 @@
+﻿<h2 style="font-style:@FontStyle">
+	@Text
+	@ChildContent
+</h2>
+
+@code {
+	[Parameter] public string FontStyle { get; set; }
+	[Parameter] public string Text { get; set; }
+	[Parameter] public RenderFragment ChildContent { get; set; }
+}
+
+
+@*
+	Parametry
+	RenderFragment, ChildContent vs. jinak pojmenované
+	Docs: Our general guidance is not to create components that directly write to their own parameters after the component is rendered for the first time.
+*@
+
+

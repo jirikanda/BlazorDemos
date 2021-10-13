@@ -1,0 +1,11 @@
+﻿@page "/component09"
+@using System.Globalization
+
+<h1>@@key</h1>
+
+<ul>
+	@foreach (CultureInfo cultureInfo in CultureInfo.GetCultures(CultureTypes.AllCultures))
+	{
+		<li @key="@cultureInfo.LCID">@cultureInfo.EnglishName</li>
+	}
+</ul>

@@ -1,0 +1,10 @@
+﻿@page "/component21/{Username}/{Identifikator:int?}"
+
+<p>Username: @Username</p>
+<p>Identifikator: @Identifikator</p>
+
+@code
+{
+	[Parameter] public string Username{ get; set; }
+	[Parameter] public int? Identifikator { get; set; }
+}

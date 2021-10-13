@@ -1,0 +1,15 @@
+﻿@page "/component04"
+
+<h1>Parametry</h1>
+
+<Heading FontStyle="bold" Text="Heading1" />
+<Heading FontStyle="@headingFontStyle" Text="@headingText" />
+
+<Heading>Heading<sup>3</sup></Heading>
+
+@code {
+	private string headingFontStyle = "italic";
+	private string headingText = "Heading2";
+}
+
+@* Viz Heading.razor *@

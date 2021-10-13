@@ -1,0 +1,20 @@
+﻿@page "/component10"
+@using System.Globalization
+
+<div>
+	<input type="checkbox" checked="@(true)" />
+	<input type="checkbox" checked="@(false)" />
+	<input type="checkbox" checked="@("false")" />
+	<input type="checkbox" checked="@((string)null)" />
+</div>
+
+@*
+	Renderuje:
+
+	<div>
+		<input type="checkbox" checked />
+		<input type="checkbox" />
+		<input type="checkbox" checked="false" />
+		<input type="checkbox" />
+	</div>
+*@

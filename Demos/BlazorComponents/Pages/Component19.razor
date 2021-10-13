@@ -1,0 +1,21 @@
+﻿@page "/component19"
+
+<h1>Focus</h1>
+
+<input type="search" @ref="inputElement" />
+
+@code
+{
+	ElementReference inputElement;
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await base.OnAfterRenderAsync(firstRender);
+
+		if (firstRender)
+		{
+			await inputElement.FocusAsync();
+		}
+	}
+}
+

@@ -1,0 +1,13 @@
+﻿<button @onclick="HandleClickAsync">
+	@ChildContent
+</button>
+
+@code {
+	[Parameter] public RenderFragment ChildContent { get; set; }
+	[Parameter] public EventCallback OnClick { get; set; }
+
+	private async Task HandleClickAsync()
+	{
+		await OnClick.InvokeAsync();
+	}
+}

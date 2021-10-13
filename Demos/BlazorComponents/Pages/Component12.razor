@@ -1,0 +1,18 @@
+﻿@page "/component12"
+
+<h1>Events - Components</h1>
+
+<MyButtonComponent OnClick="HandleClick">
+	My button
+</MyButtonComponent>
+
+<p>counter: @counter</p>
+
+@code {
+	int counter;
+
+	private void HandleClick()
+	{
+		counter += 1;
+	}
+}
