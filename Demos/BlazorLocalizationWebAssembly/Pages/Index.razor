@@ -1,0 +1,7 @@
+﻿@page "/"
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<Index> localizer
+
+<h1>@localizer["Hello"]</h1>
+<p>@localizer["Today"]: @DateTime.Today.ToLongDateString()</p>
