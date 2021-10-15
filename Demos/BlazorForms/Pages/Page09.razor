@@ -1,0 +1,57 @@
+﻿@page "/page09"
+@using Blazored.FluentValidation
+@using FluentValidation;
+
+<h3>Fluent Validation</h3>
+
+<EditForm EditContext="editContext">
+	<FluentValidationValidator />
+	<ValidationSummary />	
+	
+	<div>
+		<label class="form-label">Věk</label>
+		<InputNumber class="form-control" @bind-Value="formData.Age" ParsingErrorMessage="@Resources.Page08Resources.AgeParsingErrorMessage" />
+		<ValidationMessage For="() => formData.Age" />
+	</div>
+
+	<div>
+		<button type="submit" @onclick="HandleSubmitClick" class="btn btn-primary">Submit form</button>
+	</div>
+</EditForm>
+
+@code {
+
+	private EditContext editContext;
+	private FormModel formData;
+
+	public Page09()
+	{
+		formData = new FormModel();
+		editContext = new EditContext(formData);
+	}
+
+	private void HandleSubmitClick()
+	{
+		if (editContext.Validate())
+		{
+			//	System.Diagnostics.Debugger.Break();
+		}
+	}
+
+	public class FormModel
+	{
+		public int Age { get; set; }
+	}
+
+	public class FormModelValidator : FluentValidation.AbstractValidator<FormModel>
+	{
+		public FormModelValidator(Microsoft.Extensions.Localization.IStringLocalizer<Page09> localizer)
+		{
+			RuleFor(formModel => formModel.Age)
+				.GreaterThanOrEqualTo(18)
+				//.WithName(localizer["Age"])
+				//.WithMessage(localizer["AgeValidationMessage"])
+				;
+		}
+	}
+}

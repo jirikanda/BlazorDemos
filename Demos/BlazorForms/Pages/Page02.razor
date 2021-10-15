@@ -1,0 +1,32 @@
+﻿@page "/page02"
+
+<h3>Form data</h3>
+
+<form>
+
+	<div>
+		<label class="form-label">Křestní jméno</label>
+		<input type="text" class="form-control" @bind-value="formData.FirstName">
+	</div>
+
+	<div>
+		<label class="form-label">Příjmení</label>
+		<input type="text" class="form-control" @bind-value="formData.LastName">
+	</div>
+
+	<div>
+		<button type="submit" class="btn btn-primary">Submit form</button>
+	</div>
+
+</form>
+
+@code {
+
+	private FormModel formData = new FormModel();
+
+	private class FormModel
+	{
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+	}
+}

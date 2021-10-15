@@ -1,0 +1,25 @@
+﻿@page "/page01"
+
+<h3>HTML</h3>
+
+<form>
+	<div>
+		<label class="form-label">Křestní jméno</label>
+		<input type="text" class="form-control" required>
+	</div>
+	<div>
+		<label class="form-label">Příjmení</label>
+		<input type="text" class="form-control" required>
+	</div>
+
+	<div>
+		<input type="submit" class="btn btn-primary" @onclick="HandleClick">Submit form</input>
+	</div>
+</form>
+
+@code {
+	private void HandleClick()
+	{
+	//	System.Diagnostics.Debugger.Break();
+	}
+}

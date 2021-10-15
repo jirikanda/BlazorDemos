@@ -1,0 +1,45 @@
+﻿@page "/page07"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Parsing Error</h3>
+
+<EditForm EditContext="editContext">
+	<DataAnnotationsValidator />
+	<ValidationSummary />	
+	
+	<div>
+		<label class="form-label">Věk</label>
+		<InputNumber class="form-control" @bind-Value="formData.Age" ParsingErrorMessage="Zadejte správně věk." />
+		<ValidationMessage For="() => formData.Age" />
+	</div>
+
+	<div>
+		<button type="submit" @onclick="HandleSubmitClick" class="btn btn-primary">Submit form</button>
+	</div>
+</EditForm>
+
+@code {
+
+	private EditContext editContext;
+	private FormModel formData;
+
+	public Page07()
+	{
+		formData = new FormModel();
+		editContext = new EditContext(formData);
+	}
+
+	private void HandleSubmitClick()
+	{
+		if (editContext.Validate())
+		{
+			//	System.Diagnostics.Debugger.Break();
+		}
+	}
+
+	private class FormModel
+	{
+		[Range(18, 99, ErrorMessage = "Věk musí být minimálně 18 let.")]
+		public int Age { get; set; }
+	}
+}

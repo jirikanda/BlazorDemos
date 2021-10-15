@@ -1,0 +1,57 @@
+﻿@page "/page04"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Multiple submits</h3>
+
+<EditForm EditContext="editContext">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<div>
+		<label class="form-label">Křestní jméno</label>
+		<input type="text" class="form-control" @bind-value="formData.FirstName">
+	</div>
+
+	<div>
+		<label class="form-label">Příjmení</label>
+		<input type="text" class="form-control" @bind-value="formData.LastName">
+	</div>
+
+	<div>
+		<button type="submit" @onclick="HandleSubmit1Click" class="btn btn-primary">Submit form 1</button>
+		<button type="submit" @onclick="HandleSubmit2Click" class="btn btn-secondary">Submit form 2</button>
+	</div>
+
+</EditForm>
+
+@code {
+
+	private EditContext editContext;
+	private FormModel formData;
+
+	public Page04()
+	{
+		formData = new FormModel();
+		editContext = new EditContext(formData);
+	}
+
+	private void HandleSubmit1Click()
+	{
+		if (editContext.Validate())
+		{
+			//	System.Diagnostics.Debugger.Break();
+		}
+	}
+
+	private void HandleSubmit2Click()
+	{
+		// ...
+	}
+
+
+	private class FormModel
+	{
+		[Required] public string FirstName { get; set; }
+		[Required] public string LastName { get; set; }
+	}
+}

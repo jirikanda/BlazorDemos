@@ -1,0 +1,46 @@
+﻿@page "/page08"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Lokalizace DataAnnotations</h3>
+
+<EditForm EditContext="editContext">
+	<DataAnnotationsValidator />
+	<ValidationSummary />	
+	
+	<div>
+		<label class="form-label">Věk</label>
+		<InputNumber class="form-control" @bind-Value="formData.Age" ParsingErrorMessage="@Resources.Page08Resources.AgeParsingErrorMessage" />
+		@*<InputNumber class="form-control" @bind-Value="formData.Age" ParsingErrorMessage="@localizer["AgeParsingErrorMesage"]" />*@
+		<ValidationMessage For="() => formData.Age" />
+	</div>
+
+	<div>
+		<button type="submit" @onclick="HandleSubmitClick" class="btn btn-primary">Submit form</button>
+	</div>
+</EditForm>
+
+@code {
+
+	private EditContext editContext;
+	private FormModel formData;
+
+	public Page08()
+	{
+		formData = new FormModel();
+		editContext = new EditContext(formData);
+	}
+
+	private void HandleSubmitClick()
+	{
+		if (editContext.Validate())
+		{
+			//	System.Diagnostics.Debugger.Break();
+		}
+	}
+
+	private class FormModel
+	{
+		[Range(18, 99, ErrorMessageResourceName = nameof(Resources.Page08Resources.AgeValidationMessage), ErrorMessageResourceType = typeof(Resources.Page08Resources))]
+		public int Age { get; set; }
+	}
+}

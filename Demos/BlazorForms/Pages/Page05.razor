@@ -1,0 +1,54 @@
+﻿@page "/page05"
+@using System.ComponentModel.DataAnnotations
+
+<h3>InputText, Validation Message</h3>
+
+<EditForm EditContext="editContext">
+	<DataAnnotationsValidator />
+	<ValidationSummary />	
+	
+	<div>
+		<label class="form-label">Křestní jméno</label>
+		<InputText class="form-control" @bind-Value="formData.FirstName" />
+		<ValidationMessage For="() => formData.FirstName" />
+	</div>
+
+	<div>
+		<label class="form-label">Příjmení</label>
+		<InputText class="form-control" @bind-Value="formData.LastName" />
+		<ValidationMessage For="() => formData.LastName" />
+	</div>
+
+	<div>
+		<button type="submit" @onclick="HandleSubmitClick" class="btn btn-primary">Submit form</button>
+	</div>
+</EditForm>
+
+@code {
+
+	private EditContext editContext;
+	private FormModel formData;
+
+	public Page05()
+	{
+		formData = new FormModel();
+		editContext = new EditContext(formData);
+	}
+
+	private void HandleSubmitClick()
+	{
+		if (editContext.Validate())
+		{
+			//	System.Diagnostics.Debugger.Break();
+		}
+	}
+
+	private class FormModel
+	{
+		[Required(ErrorMessage = "Zadejte křestní jméno.")]
+		public string FirstName { get; set; }
+
+		[Required(ErrorMessage = "Zadejte příjmení.")]
+		public string LastName { get; set; }
+	}
+}

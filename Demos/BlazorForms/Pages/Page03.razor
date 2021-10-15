@@ -1,0 +1,40 @@
+﻿@page "/page03"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Edit Form, DataAnnotationsValidator, ValidationSummary</h3>
+
+<EditForm Model="@formData" OnValidSubmit="HandleValidSubmit">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<div>
+		<label class="form-label">Křestní jméno</label>
+		<input type="text" class="form-control" @bind-value="formData.FirstName">
+	</div>
+
+	<div>
+		<label class="form-label">Příjmení</label>
+		<input type="text" class="form-control" @bind-value="formData.LastName">
+	</div>
+
+	<div>
+		<button type="submit" class="btn btn-primary">Submit form</button>
+	</div>
+
+</EditForm>
+
+@code {
+
+	private FormModel formData = new FormModel();
+
+	private void HandleValidSubmit()
+	{
+		//	System.Diagnostics.Debugger.Break();
+	}
+
+	private class FormModel
+	{
+		[Required] public string FirstName { get; set; }
+		[Required] public string LastName { get; set; }
+	}
+}
