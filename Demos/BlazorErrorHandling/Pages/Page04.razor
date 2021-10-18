@@ -1,0 +1,24 @@
+﻿@page "/page04"
+
+<input type="number" value="@number" @oninput="NumberChanged" />
+
+<ErrorBoundary @ref="errorBoundary">
+	<ChildContent>
+		<MyComponent Value="@number" />
+	</ChildContent>
+	<ErrorContent>
+		Value must be positive.
+	</ErrorContent>
+</ErrorBoundary>
+
+@code {
+	private ErrorBoundary errorBoundary;
+	private int number = 1;
+
+
+	private void NumberChanged(ChangeEventArgs changedEventArgs)
+	{
+		number = int.Parse((string)changedEventArgs.Value);
+		errorBoundary.Recover();
+	}
+}
