@@ -1,0 +1,15 @@
+﻿<p>Value: @Value</p>
+
+@code {
+	[Parameter] public int Value { get; set; }
+
+	protected override void OnParametersSet()
+	{
+		base.OnParametersSet();
+
+		if (Value <= 0)
+		{
+			throw new ApplicationException("Value must be positive.");
+		}
+	}
+}

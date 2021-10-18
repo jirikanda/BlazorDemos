@@ -1,0 +1,16 @@
+﻿@page "/page03"
+
+<input type="number" @bind="number" />
+
+<ErrorBoundary>
+	<ChildContent>
+		<MyComponent Value="@number" />
+	</ChildContent>
+	<ErrorContent>
+		Value must be positive.
+	</ErrorContent>
+</ErrorBoundary>
+
+@code {
+	int number = 1;
+}

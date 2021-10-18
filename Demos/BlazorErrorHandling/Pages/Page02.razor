@@ -1,0 +1,11 @@
+﻿@page "/page02"
+
+<input type="number" @bind="number" />
+
+<ErrorBoundary>
+	<MyComponent Value="@number" />
+</ErrorBoundary>
+
+@code {
+	int number = 1;
+}

@@ -1,0 +1,8 @@
+﻿@page "/page01"
+
+<input type="number" @bind="number" />
+<MyComponent Value="@number" />
+
+@code {
+	int number = 1;
+}

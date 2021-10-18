@@ -1,0 +1,16 @@
+﻿@page "/page05"
+
+<input type="number" @bind="number" />
+
+<MyCustomErrorBoundary>
+	<ChildContent>
+		<MyComponent Value="@number" />
+	</ChildContent>
+	<ErrorContent>
+		Value must be positive.
+	</ErrorContent>
+</MyCustomErrorBoundary>
+
+@code {
+	private int number = 1;
+}
