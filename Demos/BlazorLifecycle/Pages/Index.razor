@@ -1,14 +1,14 @@
 ﻿@page "/"
 
-<MyComponent SomeValue="@i" />
+<h1>Blazor Lifecycle</h1>
 
-<input type="button" @onclick="ButtonClick" value="Click me">
-
-@code {
-	private int i;
-	private void ButtonClick()
-	{
-		i++;
-		// NOOP
-	}
-}
+<ul>
+	<li><a href="/Demo1">Demo1 - Simple</a></li>
+	<li><a href="/Demo2">Demo2 - Show/Hide</a></li>
+	<li><a href="/Demo3">Demo3 - Increment</a></li>
+	<li><a href="/Demo4">Demo4 - Ref</a></li>
+	<li><a href="/Demo5">Demo5 - Events</a></li>
+	<li><a href="/Demo6">Demo6 - Events II</a></li>
+	<li><a href="/Demo7">Demo7 - EventsCallbacks</a></li>
+	<li><a href="/Demo8">Demo8 - </a></li>
+</ul>
