@@ -1,17 +1,17 @@
 ﻿@page "/component14"
 
-<h1>Events - Databinding</h1>
+<h1>Databinding</h1>
 
-<MyInputComponent Text="@text" TextChanged="HandleTextChanged" />
-@*<MyInputComponent @bind-Text="text" />*@
+<MyInputComponent @bind-Text="text" />
+@*<MyInputComponent Text="@text" TextChanged="HandleTextChanged" />*@
 
 <p>Text: @text</p>
 
 @code {
 	string text;
 
-	private void HandleTextChanged(string newText)
-	{
-		text = newText;
-	}
+	//private void HandleTextChanged(string newText)
+	//{
+	//	text = newText;
+	//}
 }
