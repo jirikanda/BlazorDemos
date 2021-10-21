@@ -12,7 +12,7 @@
 
 	private async Task HandleClickAsync()
 	{
-		dotnetReference = DotNetObjectReference.Create(this);
+		dotnetReference ??= DotNetObjectReference.Create(this);
 		await JsRuntime.InvokeVoidAsync("sayHello", dotnetReference); // viz index.html
 	}
 
@@ -24,7 +24,7 @@
 
 	public void Dispose()
 	{
-		dotnetReference.Dispose(); 
+		dotnetReference?.Dispose();		
 		// Dispose lze provést i z JS
 	}
 }

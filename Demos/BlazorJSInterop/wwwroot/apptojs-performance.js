@@ -4,7 +4,9 @@
 	{
 		var prime = true;
 		for (var j = 2; j < i; j++) {
-			prime = false;
+			if (i % j == 0) {
+				prime = false;
+			}
 		}
 		if (prime) {
 			result++;

@@ -35,12 +35,15 @@
 	private int CalculatePrimes(int max)
 	{
 		int result = 0;
-		for (var i = 1; i <= max; i++)
+		for (var i = 2; i <= max; i++)
 		{
 			bool prime = true;
 			for (int j = 2; j < i; j++)
 			{
-				prime = false;
+				if (i % j == 0)
+				{
+					prime = false;
+				}
 			}
 			if (prime)
 			{
