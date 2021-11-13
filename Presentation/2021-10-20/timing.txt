@@ -1,0 +1,11 @@
+9:00 Úvod, hostingové modely
+10:00 Křestávka
+10:20 Komponenty
+12:00 Oběd
+13:00 Lokalizace, lifecycle
+14:00 Demo5 lifecycle
+15:05 Přestávka
+15:20 Formuláře, error boundaries
+16:30 Přestávka
+16:45 Deployment do Azure (ukázka na přání)
+17:10 Konec
