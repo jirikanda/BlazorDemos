@@ -1,0 +1,19 @@
+﻿@inject ILogger<CounterDisplay> logger
+	
+<h3>Counter Display</h3>
+<p>Counter Value: @Value</p>
+
+@code {
+	[Parameter] public int Value { get; set; }
+	[Parameter] public CultureInfo Culture { get; set; }
+
+	//[Parameter] public EventCallback<int> ValueChanged { get; set; }
+	//[Parameter] public EventCallback Confirmed { get; set; }
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		base.OnAfterRender(firstRender);
+		logger.LogInformation($"{nameof(CounterDisplay)} - {nameof(OnAfterRender)}");
+	}
+
+}
