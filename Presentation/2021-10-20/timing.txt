@@ -1,5 +1,5 @@
 9:00 Úvod, hostingové modely
-10:00 Křestávka
+10:00 Přestávka
 10:20 Komponenty
 12:00 Oběd
 13:00 Lokalizace, lifecycle
