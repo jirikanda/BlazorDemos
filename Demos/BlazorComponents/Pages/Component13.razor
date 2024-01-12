@@ -5,7 +5,7 @@
 @for (int i = 1; i < 6; i++)
 {
 	int j = i; @* https://unicorn-dev.medium.com/how-to-capture-a-variable-in-c-and-not-to-shoot-yourself-in-the-foot-d169aa161aa6 *@
-	@* Nelze: <MyButtonComponent OnClick="HandleClick(i)">@i</MyButtonComponent>*@
+	@* Nelze: <MyButtonComponent OnClick="() => HandleClick(i)">@i</MyButtonComponent>*@
 	<MyButtonComponent OnClick="() => HandleClick(j)">@j</MyButtonComponent>
 	@*<MyButtonComponent OnClick="async () => await HandleClickAsync(j)">@j</MyButtonComponent>*@
 }
