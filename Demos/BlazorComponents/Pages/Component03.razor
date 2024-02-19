@@ -3,6 +3,7 @@
 <h1>Razor a zavináč</h1>
 
 <div>Zavináč: @DateTime.Today.ToShortDateString()</div>
+<div>Zavináč: @((DateTime.Today + TimeSpan.FromDays(1)).ToShortDateString())</div>
 <div>Prostě zavináč: @@</div>
 <div>Výraz @(1+1)</div>
 <div>Blok @{ /* NOOP */ }</div>

@@ -4,6 +4,7 @@
 
 <MyInputComponent @bind-Text="text" />
 @*<MyInputComponent Text="@text" TextChanged="HandleTextChanged" />*@
+@*<MyInputComponent @bind-Text="text" @bind-bind-Text:after="HandleTextChanged2" /> *@
 
 <p>Text: @text</p>
 
@@ -14,4 +15,9 @@
 	//{
 	//	text = newText;
 	//}
+
+	//private void HandleTextChanged2()
+	//{
+	//}
+
 }
