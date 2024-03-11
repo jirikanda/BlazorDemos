@@ -1,0 +1,36 @@
+﻿@page "/component24"
+@using System.Globalization
+
+<h1>@@key (without vs. with)</h1>
+
+<ul>
+	@foreach (int i in Items)
+	{
+		<div>
+			<span>@i:</span>
+			<input type="text" value="@i" style="background-color: white" />
+		</div>
+	}
+</ul>
+
+
+<input type="text" @bind-value="userValue" />
+<input type="button" @onclick="HandleAddClick" value="Add" />
+<input type="button" @onclick="HandleRemoveClick" value="Remove" />
+
+@code
+{
+	List<int> Items = new List<int> { 1, 2, 3, 4, 5 };
+	int userValue = 0;
+
+	private void HandleAddClick()
+	{
+		Items.Add(userValue);
+		Items.Sort(Comparer<int>.Default);
+	}
+
+	private void HandleRemoveClick()
+	{
+		Items.RemoveAll(i => i == userValue);
+	}
+}

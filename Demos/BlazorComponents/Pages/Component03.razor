@@ -11,12 +11,10 @@
 
 <h2 style="font-style:@headingFontStyle">@headingText</h2>
 
+<p>@((MarkupString)headingText)</p>
+
 @code {
 	private string headingFontStyle = "italic";
 	//private string headingText = "Put on your new Blazor!";
 	private string headingText = "<b>Put on your new Blazor!</b>";
 }
-
-@*	
-	@((MarkupString)headingText)
-*@

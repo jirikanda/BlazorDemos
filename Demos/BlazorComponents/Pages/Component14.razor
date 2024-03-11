@@ -2,22 +2,24 @@
 
 <h1>Databinding</h1>
 
+<MyInputComponent Text="@text" TextChanged="HandleTextChanged" />
 <MyInputComponent @bind-Text="text" />
-@*<MyInputComponent Text="@text" TextChanged="HandleTextChanged" />*@
-@*<MyInputComponent @bind-Text="text" @bind-bind-Text:after="HandleTextChanged2" /> *@
+<MyInputComponent @bind-Text="text" @bind-Text:after="HandleTextChanged2" />
 
 <p>Text: @text</p>
 
 @code {
 	string text;
 
-	//private void HandleTextChanged(string newText)
-	//{
-	//	text = newText;
-	//}
+	private void HandleTextChanged(string newText)
+	{
+		text = newText;
+	}
 
-	//private void HandleTextChanged2()
-	//{
-	//}
+	private void HandleTextChanged2()
+	{
+	}
 
 }
+
+@* https://github.com/dotnet/aspnetcore/blob/main/src/Components/Web/src/Forms/InputBase.cs#L55 *@

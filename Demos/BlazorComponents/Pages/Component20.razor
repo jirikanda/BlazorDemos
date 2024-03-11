@@ -1,20 +1,32 @@
 ﻿@page "/component20"
+@using System.Diagnostics
 
-<h1>Cascading Values</h1>
+@for (int i = 0; i < count; i++)
+{
+    int j = i;
+    <Heading @ref="HeadingRef">@j</Heading>
+}
 
-<CascadingValue Value="myCascadingValue1" IsFixed="true">
-	<CascadingValueReceiverDemoComponent />
-	<CascadingValueReceiverDemoComponent />
-</CascadingValue>
-
-<CascadingValue Value="myCascadingValue2" IsFixed="true">
-	<CascadingValueReceiverDemoComponent />
-	<CascadingValueReceiverDemoComponent />
-</CascadingValue>
+<MyButtonComponent OnClick="HandleClick">Refresh</MyButtonComponent>
 
 @code
 {
-	private MyCascadingValue myCascadingValue1 = new MyCascadingValue { Text = "Value1" };
-	private MyCascadingValue myCascadingValue2 = new MyCascadingValue { Text = "Value2" };
-}
+    int count = 5;
 
+    List<Heading> headings = new List<Heading>();
+    Heading HeadingRef
+    {
+        set { headings.Add(value); }
+    }
+
+    private void HandleClick()
+    {
+        count += 1;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        Debugger.Break();
+    }
+}

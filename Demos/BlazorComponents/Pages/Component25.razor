@@ -1,0 +1,21 @@
+﻿@page "/component25"
+
+<h3>Component25 - Repeater</h3>
+
+@*
+
+<Repeater Data="@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.DayNames">
+    <ItemTemplate Context="DataItem">
+        <p style="@(DataItem.Index == 6 ? "color: red" : null)">
+            Day of weak #@DataItem.Index: @DataItem.Value
+        </p>
+    </ItemTemplate>
+</Repeater>
+
+<Repeater Data="@(new int[] { 1, 2, 3, 4, 5 })">
+    <ItemTemplate Context="DataItem">
+        @DataItem.Value &nbsp;        
+    </ItemTemplate>
+</Repeater>
+
+*@

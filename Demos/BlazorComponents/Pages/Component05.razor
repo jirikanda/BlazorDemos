@@ -1,5 +1,18 @@
 ﻿@page "/component05"
 
-<h1>Attribute splatting and arbitrary parameters</h1>
+<h1>Cascading Values &amp; parameters</h1>
 
-<a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/splat-attributes-and-arbitrary-parameters?view=aspnetcore-8.0">ASP.NET Core Blazor attribute splatting and arbitrary parameters</a>
+<CascadingValue Value="myCascadingValue1" IsFixed="true">
+	<CascadingValueReceiverDemoComponent />
+</CascadingValue>
+
+<CascadingValue Value="myCascadingValue2" IsFixed="true">
+	<CascadingValueReceiverDemoComponent />
+</CascadingValue>
+
+@code
+{
+	private MyCascadingValue myCascadingValue1 = new MyCascadingValue { Text = "Value1" };
+	private MyCascadingValue myCascadingValue2 = new MyCascadingValue { Text = "Value2" };
+}
+
