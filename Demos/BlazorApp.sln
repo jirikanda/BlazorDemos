@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorErrorHandling", "Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLifecycle2", "BlazorLifecycle2\BlazorLifecycle2.csproj", "{DCDFE907-D0BD-420C-9601-01841F550FBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLifecycle4", "BlazorLifecycle4\BlazorLifecycle4.csproj", "{98D61D62-A720-49A0-9941-7053BD79D669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D61D62-A720-49A0-9941-7053BD79D669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D61D62-A720-49A0-9941-7053BD79D669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D61D62-A720-49A0-9941-7053BD79D669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D61D62-A720-49A0-9941-7053BD79D669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

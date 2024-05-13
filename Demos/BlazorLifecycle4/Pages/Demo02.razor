@@ -1,0 +1,19 @@
+﻿@page "/Demo02"
+
+<h1>Demo02 - Show/Hide</h1>
+
+<button class="btn btn-primary" @onclick="HandleClick">Toggle</button>
+
+@if (visible)
+{
+	<DemoComponent />
+}
+
+@code {
+	private bool visible = true;
+
+	public void HandleClick()
+	{
+		visible = !visible;
+	}
+}

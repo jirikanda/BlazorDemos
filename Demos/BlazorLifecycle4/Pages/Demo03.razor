@@ -1,0 +1,22 @@
+﻿@page "/Demo03"
+
+<h1>Demo03 - Changing parameter value</h1>
+
+<button class="btn btn-primary" @onclick="HandleIncrementClick">Increment</button>
+<button class="btn btn-secondary" @onclick="HandleDoNothingClick">Do nothing</button>
+
+<DemoComponent Value="@value" />
+
+@code {
+	private int value = 1;
+
+	private void HandleIncrementClick()
+	{
+		value += 1;
+	}
+
+	private void HandleDoNothingClick()
+	{
+		// NOOP
+	}
+}
