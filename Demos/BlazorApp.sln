@@ -19,9 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorForms", "BlazorForms\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorErrorHandling", "BlazorErrorHandling\BlazorErrorHandling.csproj", "{A380B45A-8150-4579-8A2E-C5D62413EAFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLifecycle2", "BlazorLifecycle2\BlazorLifecycle2.csproj", "{DCDFE907-D0BD-420C-9601-01841F550FBC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLifecycle4", "BlazorLifecycle4\BlazorLifecycle4.csproj", "{98D61D62-A720-49A0-9941-7053BD79D669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLifecycle4", "BlazorLifecycle4\BlazorLifecycle4.csproj", "{98D61D62-A720-49A0-9941-7053BD79D669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +59,6 @@ Global
 		{A380B45A-8150-4579-8A2E-C5D62413EAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A380B45A-8150-4579-8A2E-C5D62413EAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A380B45A-8150-4579-8A2E-C5D62413EAFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCDFE907-D0BD-420C-9601-01841F550FBC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98D61D62-A720-49A0-9941-7053BD79D669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98D61D62-A720-49A0-9941-7053BD79D669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98D61D62-A720-49A0-9941-7053BD79D669}.Release|Any CPU.ActiveCfg = Release|Any CPU

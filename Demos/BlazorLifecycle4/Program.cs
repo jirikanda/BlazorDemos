@@ -6,10 +6,10 @@ namespace BlazorLifecycle4
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-            builder.Services.AddRazorComponents()
+			var builder = WebApplication.CreateBuilder(args);
+			
+			// Add services to the container.
+			builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
             var app = builder.Build();

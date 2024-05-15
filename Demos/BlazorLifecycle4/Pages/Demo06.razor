@@ -1,0 +1,18 @@
+﻿@page "/Demo06"
+
+<h1>Demo06 - Event handling - async/await tricks</h1>
+
+<h4>i: @i</h4>
+<Demo06Component @bind-Value="@i" />
+@* <Demo06Component Value="@i" ValueChanged="HandleValueChangedAsync" /> *@
+
+@code 
+{
+	int i = 0;
+
+	// private async Task HandleValueChangedAsync(int i)
+	// {
+	// 	this.i = i;
+	// 	await Task.Yield();
+	// }
+}
