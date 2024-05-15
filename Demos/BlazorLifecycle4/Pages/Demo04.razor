@@ -1,11 +1,11 @@
 ﻿@page "/Demo04"
 
-<h1>Demo04 - Changing parameter value II</h1>
+<h1>Demo04 - Changing parameter value</h1>
 
 <button class="btn btn-primary" @onclick="HandleIncrementClick">Increment</button>
 <button class="btn btn-secondary" @onclick="HandleDoNothingClick">Do nothing</button>
 
-<DemoComponent Value="@value" Culture="Thread.CurrentThread.CurrentCulture" />
+<DemoComponent Value="@value" />
 
 @code {
 	private int value = 1;

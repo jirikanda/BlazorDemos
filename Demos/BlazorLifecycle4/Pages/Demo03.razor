@@ -1,22 +1,19 @@
 ﻿@page "/Demo03"
 
-<h1>Demo03 - Changing parameter value</h1>
+<h1>Demo03 - Show/Hide</h1>
 
-<button class="btn btn-primary" @onclick="HandleIncrementClick">Increment</button>
-<button class="btn btn-secondary" @onclick="HandleDoNothingClick">Do nothing</button>
+<button class="btn btn-primary" @onclick="HandleClick">Toggle</button>
 
-<DemoComponent Value="@value" />
+@if (visible)
+{
+	<DemoComponent />
+}
 
 @code {
-	private int value = 1;
+	private bool visible = true;
 
-	private void HandleIncrementClick()
+	public void HandleClick()
 	{
-		value += 1;
-	}
-
-	private void HandleDoNothingClick()
-	{
-		// NOOP
+		visible = !visible;	
 	}
 }

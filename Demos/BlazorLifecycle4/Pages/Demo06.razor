@@ -1,18 +1,68 @@
 ﻿@page "/Demo06"
 
-<h1>Demo06 - Event handling - async/await tricks</h1>
+@{
+	LogMethodCall(nameof(BuildRenderTree));
+}
 
-<h4>i: @i</h4>
-<Demo06Component @bind-Value="@i" />
-@* <Demo06Component Value="@i" ValueChanged="HandleValueChangedAsync" /> *@
+<h1>Demo06 - Event handling</h1>
 
-@code 
-{
-	int i = 0;
+<button class="btn btn-primary" @onclick="HandleIncrementClick">Increment</button>
+<button class="btn btn-primary" @onclick="HandleIncrementClick1Async">Increment Async [Task.Completed]</button>
+<button class="btn btn-primary" @onclick="HandleIncrementClick2Async">Increment Async [Task.Yield]</button>
+<button class="btn btn-primary" @onclick="HandleIncrementClick3Async">2x Increment Async [Task.Delay]</button>
+<button class="btn btn-secondary" @onclick="HandleDoNothingClick">Do nothing</button>
 
-	// private async Task HandleValueChangedAsync(int i)
-	// {
-	// 	this.i = i;
-	// 	await Task.Yield();
-	// }
+<h4>Value: @value</h4>
+
+
+@code {
+	[Inject] private ILogger<Demo06> Logger { get; set; }
+
+	private int value = 1;
+
+	private void HandleIncrementClick()
+	{
+		LogMethodCall(nameof(HandleIncrementClick));
+		value += 1;
+	}
+
+	private Task HandleIncrementClick1Async()
+	{
+		LogMethodCall(nameof(HandleIncrementClick1Async));
+		value += 1;
+		return Task.CompletedTask;
+	}
+
+	private async Task HandleIncrementClick2Async()
+	{
+		LogMethodCall(nameof(HandleIncrementClick2Async));
+		value += 1;
+		await Task.Yield();
+	}
+
+	private async Task HandleIncrementClick3Async()
+	{
+		LogMethodCall(nameof(HandleIncrementClick3Async));
+		value += 1;
+		await Task.Delay(1000);
+		value += 1;
+	}
+
+
+	private void HandleDoNothingClick()
+	{
+		LogMethodCall(nameof(HandleDoNothingClick));
+		// NOOP
+	}
+
+	private void LogMethodCall(string methodName)
+	{
+		Logger.LogInformation(GetHashCode() + " " + methodName);
+	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		Logger.LogInformation(nameof(OnAfterRender));
+		base.OnAfterRender(firstRender);
+	}
 }

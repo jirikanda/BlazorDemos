@@ -1,19 +1,36 @@
 ﻿@page "/Demo02"
 
-<h1>Demo02 - Show/Hide</h1>
+<h1>Demo02 - Ref</h1>
 
-<button class="btn btn-primary" @onclick="HandleClick">Toggle</button>
-
-@if (visible)
-{
-	<DemoComponent />
-}
+<DemoComponent @ref="_demoComponent" />
+<span @ref="_spanElement"></span>
 
 @code {
-	private bool visible = true;
 
-	public void HandleClick()
+	private DemoComponent _demoComponent;
+	private ElementReference _spanElement;
+
+	[Inject] ILogger<Demo02> Logger { get; set; }
+
+	protected override void OnInitialized()
 	{
-		visible = !visible;	
+		Logger.LogInformation(nameof(OnInitialized));
+		Logger.LogInformation(_demoComponent == null ? "_demoComponent IS null" : "_demoComponent IS NOT null");
+		base.OnInitialized();
 	}
+
+	protected override void OnParametersSet()
+	{
+		Logger.LogInformation(nameof(OnParametersSet));
+		Logger.LogInformation(_demoComponent == null ? "_demoComponent IS null" : "_demoComponent IS NOT null");
+		base.OnParametersSet();
+	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		Logger.LogInformation(nameof(OnAfterRender));
+		Logger.LogInformation(_demoComponent == null ? "_demoComponent IS null" : "_demoComponent IS NOT null");
+		base.OnAfterRender(firstRender);
+	}
+
 }
