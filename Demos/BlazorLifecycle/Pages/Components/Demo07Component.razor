@@ -1,0 +1,43 @@
+﻿<h3>Demo 06 Component</h3>
+<h4>Value: @Value</h4>
+
+<button class="btn btn-primary" @onclick="HandleIncrementClickAsync">Increment</button>
+
+@code {
+	[Parameter] public int Value { get; set; }
+	[Parameter] public EventCallback<int> ValueChanged { get; set; }
+
+	[Inject] public ILogger<Demo07Component> Logger { get; set; }
+
+	public async Task HandleIncrementClickAsync()
+	{
+		await ValueChanged.InvokeAsync(Value + 1);
+		// await Task.Yield(); // Pozor, nemusí být zde, může být též v obsluze události ValueChanged!
+		Value = Value + 1;
+	}
+
+	// public async Task HandleIncrementClickAsync()
+	// {
+	// 	Logger.LogInformation(nameof(HandleIncrementClickAsync) + " start");
+	// 	Logger.LogInformation("Value: " + Value.ToString());
+
+	// 	await ValueChanged.InvokeAsync(Value + 1);
+	// 	await Task.Yield(); // Pozor, nemusí být zde, může být též v obsluze události ValueChanged!
+
+	// 	Logger.LogInformation(nameof(HandleIncrementClickAsync) + " middle");
+	// 	Logger.LogInformation("Value: " + Value.ToString());
+
+	// 	Value = Value + 1;
+
+	// 	Logger.LogInformation(nameof(HandleIncrementClickAsync) + " end");
+	// 	Logger.LogInformation("Value: " + Value.ToString());
+	// }
+
+	// protected override void OnParametersSet()
+	// {
+	// 	base.OnParametersSet();
+	// 	Logger.LogInformation(nameof(OnParametersSet));
+	// 	Logger.LogInformation("Value: " + Value.ToString());
+	// }
+
+}

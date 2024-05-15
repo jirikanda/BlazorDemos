@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Globalization;
 
-namespace BlazorLifecycle4.Pages.Components
+namespace BlazorLifecycle.Pages.Components
 {
     public sealed partial class DemoComponent : ComponentBase, IDisposable, IAsyncDisposable
     {
